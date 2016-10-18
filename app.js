@@ -3,7 +3,8 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 
 //_______________Routes_________________//
-myApp.config(function ($routeProvider) {
+myApp.config(function ($routeProvider, $locationProvider) {
+
     $routeProvider.when('/albums', {
         templateUrl: 'vues/albums.html',
         controller: 'albumsController'
@@ -31,6 +32,7 @@ myApp.config(function ($routeProvider) {
 
 //_____________________ALBUMS CONTROLLER______________________//
 myApp.controller('albumsController', function ($scope, $http) {
+
     $scope.albums = {};
 
     $http.post('dbRequetes/getAlbums.php').success(function (data) {
@@ -39,13 +41,33 @@ myApp.controller('albumsController', function ($scope, $http) {
 
 });
 
+//_____________________PAINTINGS CONTROLLER______________________//
+myApp.controller('paintingsController', function ($scope, $http) {
+    $scope.paintings = {};
+
+    $http.post('dbRequetes/getPaintings.php').success(function (data) {
+        $scope.paintings = data;
+    });
+
+});
+
+//_____________________BOOKS CONTROLLER______________________//
+myApp.controller('booksController', function ($scope, $http) {
+    $scope.paintings = {};
+
+    $http.post('dbRequetes/getPaintings.php').success(function (data) {
+        $scope.paintings = data;
+    });
+
+});
 
 //_____________________FILMS CONTROLLER______________________//
 myApp.controller('filmsController', function ($scope, $http) {
     $scope.films = {};
-    
+
+
     $http.post('dbRequetes/getFilms.php').success(function (data) {
         $scope.films = data;
     });
-    
+
 });
