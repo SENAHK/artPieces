@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">            
+        <link rel=stylesheet href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron vertical-center">            
+            <div class="theBox">  
+                <nav>
+                    <ul class="nav-justified">
+                        <li class="active"><a href="#">Albums</a></li>
+                        <li><a href="#">Paintings</a></li>
+                        <li><a href="#">Films</a></li>
+                        <li><a href="#">Books</a></li>
+                    </ul>
+                </nav>
+                <div ng-view="">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
