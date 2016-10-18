@@ -59,6 +59,7 @@ body{
     background-color: white;
     width: 800px;
     height: 600px;
+    overflow: scroll;
 }
 nav ul{
 
@@ -75,4 +76,7 @@ nav li{
 .active{
     font-weight: bold;
     text-decoration: underline;
+}
+article{
+    text-align: center;
 }

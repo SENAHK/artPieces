@@ -7,26 +7,41 @@ myApp.config(function ($routeProvider, $locationProvider) {
 
     $routeProvider.when('/albums', {
         templateUrl: 'vues/albums.html',
-        controller: 'albumsController'
+        controller: 'albumsController',
+        title: 'Albums'
     });
 
     $routeProvider.when('/films', {
         templateUrl: 'vues/films.html',
-        controller: 'filmsController'
+        controller: 'filmsController',
+        title: 'Films'
     });
 
     $routeProvider.when('/paintings', {
         templateUrl: 'vues/paintings.html',
-        controller: 'paintingsController'
+        controller: 'paintingsController',
+        title: 'Paintings'
     });
 
     $routeProvider.when('/books', {
         templateUrl: 'vues/books.html',
-        controller: 'booksController'
+        controller: 'booksController',
+        title: 'Books'
     });
 
     $routeProvider.otherwise({
         redirectTo: '/albums'
+    });
+
+});
+
+// Au lancement de l'application (équivalent du Main)
+myApp.run(function ($rootScope) {
+    // Lors d'un changement de route
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        if (current.hasOwnProperty('$$route')) {
+            $rootScope.title = current.$$route.title;
+        }
     });
 });
 
