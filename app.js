@@ -33,9 +33,13 @@ myApp.controller('albumsController', function ($scope, $http) {
     $scope.albums = {};
 
     $http.post('dbRequetes/getAlbums.php').success(function (data) {
-        // Stored the returned data into scope
         $scope.albums = data;
-        console.log($scope.albums);
     });
 
+});
+myApp.controller('filmsController', function ($scope, $http) {
+    $scope.fillms = {};
+    $http.post('dbRequetes/getFilms.php').success(function (data) {
+        $scope.films = data;
+    });
 });
