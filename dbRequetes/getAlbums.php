@@ -1,13 +1,13 @@
 <?php
 
-require_once './connexion.php';
-
+require './connexion.php';
 try {
-    $sql = "SELECT artisteAlbum, nomAlbum, anneeAlbum, descriptionAlbum from albums";
+    $sql = "SELECT * from albums";
     $requete = getConnexion()->prepare($sql);
     $requete->execute();
-    echo json_encode($requete->fetchAll(PDO::FETCH_ASSOC));
+    $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($resultat);
 } catch (Exception $ex) {
-    echo json_encode($ex->getMessage());
+    echo $ex->getMessage();
 }
 ?>

@@ -29,6 +29,7 @@ myApp.config(function ($routeProvider) {
     });
 });
 
+//_____________________ALBUMS CONTROLLER______________________//
 myApp.controller('albumsController', function ($scope, $http) {
     $scope.albums = {};
 
@@ -37,9 +38,14 @@ myApp.controller('albumsController', function ($scope, $http) {
     });
 
 });
+
+
+//_____________________FILMS CONTROLLER______________________//
 myApp.controller('filmsController', function ($scope, $http) {
-    $scope.fillms = {};
+    $scope.films = {};
+    
     $http.post('dbRequetes/getFilms.php').success(function (data) {
         $scope.films = data;
     });
+    
 });

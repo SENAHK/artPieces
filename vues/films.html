@@ -1,0 +1,15 @@
+<nav>
+    <ul class="nav-justified">
+        <li><a href="#">Albums</a></li>
+        <li><a href="#/paintings">Paintings</a></li>
+        <li class="active"><a href="#/films">Films</a></li>
+        <li><a href="#/books">Books</a></li>
+    </ul>
+</nav>
+<div ng-repeat="film in films">
+    <article>
+        <h2>{{film.nomFilm}} ({{film.anneeFilm}})</h2>
+        <p>{{film.realisateurFilm}}</p>
+        <p><cite>{{film.descriptionFilm}}</cite></p>
+    </article>
+</div>
