@@ -1,10 +1,13 @@
 'use strict';
+
+// Déclaration de l'application avec ses [dépendances]
+// La seule dépendance ici est le ngRoute, un module existant qui permet le routage
 var myApp = angular.module('myApp', ['ngRoute']);
 
 
 //_______________Routes_________________//
-myApp.config(function ($routeProvider, $locationProvider) {
-
+myApp.config(function ($routeProvider) {
+    // Routage des pages grâce au module angular 'ngRoute'
     $routeProvider.when('/albums', {
         templateUrl: 'vues/albums.html',
         controller: 'albumsController',
@@ -38,7 +41,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
 // Au lancement de l'application (équivalent du Main)
 myApp.run(function ($rootScope) {
     // Lors d'un changement de route
-    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+    $rootScope.$on('$routeChangeSuccess', function (current) {
         if (current.hasOwnProperty('$$route')) {
             $rootScope.title = current.$$route.title;
         }
@@ -46,6 +49,11 @@ myApp.run(function ($rootScope) {
 });
 
 //_____________________ALBUMS CONTROLLER______________________//
+/**
+ * AlbumsController est le controleur des albums
+ * @param 1: ($scope) obligatoire, fait le lien entre vue et controleur (data-binding)
+ * @param 2: (PostFactory) est le service (ici de type factory) qu'on souhaite utiliser
+ */
 myApp.controller('albumsController', function ($scope, $http) {
 
     $scope.albums = {};

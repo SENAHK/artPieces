@@ -1,10 +1,15 @@
 html, body {
     height: 100%;
 }
+@font-face {
+    font-family: geoSans;
+    src: url(GeosansLight.ttf);
+}
 body{
-    font-family: 'calibri';
+    font-family: 'geoSans';
     font-size: 10pt;
 }
+
 .jumbotron.vertical-center {
     margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
 }
@@ -79,4 +84,18 @@ nav li{
 }
 article{
     text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+h1{
+    position: absolute;
+    top: 0;
+    left:0;
+    text-align: center;
+    font-variant: small-caps;
+    margin-left: 50px;
+    font-weight: bold;
+}
+h2{
+    font-weight: bold;
 }
